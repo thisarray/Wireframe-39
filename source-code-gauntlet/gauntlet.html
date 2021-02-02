@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gauntlet</title>
+  <script src="../../jsgame0.js"></script>
+  <style type="text/css" media="screen">
+body {
+  background-color: white;
+  color: black;
+}
+.hidden {
+  display: none;
+}
+#original {
+  margin-left: 1em;
+}
+  </style>
+</head>
+
+<body>
+<section id="imageLoader" class="hidden">
+  <img class="hidden" src="images/collisionmap.png" alt="collisionmap">
+  <img class="hidden" src="images/colourmap.png" alt="colourmap">
+  <img class="hidden" src="images/elf_1.png" alt="elf_1">
+  <img class="hidden" src="images/elf_10.png" alt="elf_10">
+  <img class="hidden" src="images/elf_11.png" alt="elf_11">
+  <img class="hidden" src="images/elf_12.png" alt="elf_12">
+  <img class="hidden" src="images/elf_13.png" alt="elf_13">
+  <img class="hidden" src="images/elf_14.png" alt="elf_14">
+  <img class="hidden" src="images/elf_15.png" alt="elf_15">
+  <img class="hidden" src="images/elf_16.png" alt="elf_16">
+  <img class="hidden" src="images/elf_17.png" alt="elf_17">
+  <img class="hidden" src="images/elf_18.png" alt="elf_18">
+  <img class="hidden" src="images/elf_19.png" alt="elf_19">
+  <img class="hidden" src="images/elf_2.png" alt="elf_2">
+  <img class="hidden" src="images/elf_20.png" alt="elf_20">
+  <img class="hidden" src="images/elf_21.png" alt="elf_21">
+  <img class="hidden" src="images/elf_22.png" alt="elf_22">
+  <img class="hidden" src="images/elf_23.png" alt="elf_23">
+  <img class="hidden" src="images/elf_24.png" alt="elf_24">
+  <img class="hidden" src="images/elf_3.png" alt="elf_3">
+  <img class="hidden" src="images/elf_4.png" alt="elf_4">
+  <img class="hidden" src="images/elf_5.png" alt="elf_5">
+  <img class="hidden" src="images/elf_6.png" alt="elf_6">
+  <img class="hidden" src="images/elf_7.png" alt="elf_7">
+  <img class="hidden" src="images/elf_8.png" alt="elf_8">
+  <img class="hidden" src="images/elf_9.png" alt="elf_9">
+  <img class="hidden" src="images/valkyrie_1.png" alt="valkyrie_1">
+  <img class="hidden" src="images/valkyrie_10.png" alt="valkyrie_10">
+  <img class="hidden" src="images/valkyrie_11.png" alt="valkyrie_11">
+  <img class="hidden" src="images/valkyrie_12.png" alt="valkyrie_12">
+  <img class="hidden" src="images/valkyrie_13.png" alt="valkyrie_13">
+  <img class="hidden" src="images/valkyrie_14.png" alt="valkyrie_14">
+  <img class="hidden" src="images/valkyrie_15.png" alt="valkyrie_15">
+  <img class="hidden" src="images/valkyrie_16.png" alt="valkyrie_16">
+  <img class="hidden" src="images/valkyrie_17.png" alt="valkyrie_17">
+  <img class="hidden" src="images/valkyrie_18.png" alt="valkyrie_18">
+  <img class="hidden" src="images/valkyrie_19.png" alt="valkyrie_19">
+  <img class="hidden" src="images/valkyrie_2.png" alt="valkyrie_2">
+  <img class="hidden" src="images/valkyrie_20.png" alt="valkyrie_20">
+  <img class="hidden" src="images/valkyrie_21.png" alt="valkyrie_21">
+  <img class="hidden" src="images/valkyrie_22.png" alt="valkyrie_22">
+  <img class="hidden" src="images/valkyrie_23.png" alt="valkyrie_23">
+  <img class="hidden" src="images/valkyrie_24.png" alt="valkyrie_24">
+  <img class="hidden" src="images/valkyrie_3.png" alt="valkyrie_3">
+  <img class="hidden" src="images/valkyrie_4.png" alt="valkyrie_4">
+  <img class="hidden" src="images/valkyrie_5.png" alt="valkyrie_5">
+  <img class="hidden" src="images/valkyrie_6.png" alt="valkyrie_6">
+  <img class="hidden" src="images/valkyrie_7.png" alt="valkyrie_7">
+  <img class="hidden" src="images/valkyrie_8.png" alt="valkyrie_8">
+  <img class="hidden" src="images/valkyrie_9.png" alt="valkyrie_9">
+  <img class="hidden" src="images/warrior_1.png" alt="warrior_1">
+  <img class="hidden" src="images/warrior_10.png" alt="warrior_10">
+  <img class="hidden" src="images/warrior_11.png" alt="warrior_11">
+  <img class="hidden" src="images/warrior_12.png" alt="warrior_12">
+  <img class="hidden" src="images/warrior_13.png" alt="warrior_13">
+  <img class="hidden" src="images/warrior_14.png" alt="warrior_14">
+  <img class="hidden" src="images/warrior_15.png" alt="warrior_15">
+  <img class="hidden" src="images/warrior_16.png" alt="warrior_16">
+  <img class="hidden" src="images/warrior_17.png" alt="warrior_17">
+  <img class="hidden" src="images/warrior_18.png" alt="warrior_18">
+  <img class="hidden" src="images/warrior_19.png" alt="warrior_19">
+  <img class="hidden" src="images/warrior_2.png" alt="warrior_2">
+  <img class="hidden" src="images/warrior_20.png" alt="warrior_20">
+  <img class="hidden" src="images/warrior_21.png" alt="warrior_21">
+  <img class="hidden" src="images/warrior_22.png" alt="warrior_22">
+  <img class="hidden" src="images/warrior_23.png" alt="warrior_23">
+  <img class="hidden" src="images/warrior_24.png" alt="warrior_24">
+  <img class="hidden" src="images/warrior_3.png" alt="warrior_3">
+  <img class="hidden" src="images/warrior_4.png" alt="warrior_4">
+  <img class="hidden" src="images/warrior_5.png" alt="warrior_5">
+  <img class="hidden" src="images/warrior_6.png" alt="warrior_6">
+  <img class="hidden" src="images/warrior_7.png" alt="warrior_7">
+  <img class="hidden" src="images/warrior_8.png" alt="warrior_8">
+  <img class="hidden" src="images/warrior_9.png" alt="warrior_9">
+  <img class="hidden" src="images/wizard_1.png" alt="wizard_1">
+  <img class="hidden" src="images/wizard_10.png" alt="wizard_10">
+  <img class="hidden" src="images/wizard_11.png" alt="wizard_11">
+  <img class="hidden" src="images/wizard_12.png" alt="wizard_12">
+  <img class="hidden" src="images/wizard_13.png" alt="wizard_13">
+  <img class="hidden" src="images/wizard_14.png" alt="wizard_14">
+  <img class="hidden" src="images/wizard_15.png" alt="wizard_15">
+  <img class="hidden" src="images/wizard_16.png" alt="wizard_16">
+  <img class="hidden" src="images/wizard_17.png" alt="wizard_17">
+  <img class="hidden" src="images/wizard_18.png" alt="wizard_18">
+  <img class="hidden" src="images/wizard_19.png" alt="wizard_19">
+  <img class="hidden" src="images/wizard_2.png" alt="wizard_2">
+  <img class="hidden" src="images/wizard_20.png" alt="wizard_20">
+  <img class="hidden" src="images/wizard_21.png" alt="wizard_21">
+  <img class="hidden" src="images/wizard_22.png" alt="wizard_22">
+  <img class="hidden" src="images/wizard_23.png" alt="wizard_23">
+  <img class="hidden" src="images/wizard_24.png" alt="wizard_24">
+  <img class="hidden" src="images/wizard_3.png" alt="wizard_3">
+  <img class="hidden" src="images/wizard_4.png" alt="wizard_4">
+  <img class="hidden" src="images/wizard_5.png" alt="wizard_5">
+  <img class="hidden" src="images/wizard_6.png" alt="wizard_6">
+  <img class="hidden" src="images/wizard_7.png" alt="wizard_7">
+  <img class="hidden" src="images/wizard_8.png" alt="wizard_8">
+  <img class="hidden" src="images/wizard_9.png" alt="wizard_9">
+</section>
+
+<main>
+<h1>gauntlet</h1>
+
+<canvas id="screen">
+The game screen appears here if your browser supports the Canvas API.
+</canvas>
+<section id="controls">
+  <button type="button" id="reset">Reset</button>
+  <button type="button" id="pause">Pause</button>
+</section>
+
+<h2>Attribution</h2>
+
+<p><a href="https://wireframe.raspberrypi.org/issues/39">Code Gauntlet's four-player co-op mode, pages 64-65, by Mark Vanstone</a>.</p>
+
+<p>Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported</a>.</p>
+
+<h2>Original Python code</h2>
+
+<pre id="original"><code>
+# Gauntlet
+import pgzrun
+import math
+from pygame import image, Color, joystick
+
+myChars = []
+myDirs = [(0,1),(-1,1),(-1,0),(-1,-1),(0,-1),(1,-1),(1,0),(1,1)]
+collisionmap = image.load(&#x27;images/collisionmap.png&#x27;)
+joystick.init()
+joyin0 = joyin1 = False
+if(joystick.get_count() &gt; 0):
+    joyin0 = joystick.Joystick(0)
+    joyin0.init()
+if(joystick.get_count() &gt; 1):
+    joyin1 = joystick.Joystick(1)
+    joyin1.init()
+
+def makeChar(name,x,y):
+    c = len(myChars)
+    myChars.append(Actor(name+&quot;_1&quot;,(x, y)))
+    myChars[c].name = name
+    myChars[c].frame = myChars[c].movex = myChars[c].movey = myChars[c].dir = 0
+
+def draw():
+    screen.blit(&quot;colourmap&quot;,(0,0))
+    drawChars()
+
+def drawChars():
+    for c in range(len(myChars)):
+        myChars[c].image = myChars[c].name+&quot;_&quot;+str(((myChars[c].dir*3)+1)+math.floor(myChars[c].frame/10))
+        myChars[c].draw()
+
+def update():
+    checkInput()
+    moveChars()
+
+def checkInput():
+    if keyboard.left: myChars[0].movex = -1
+    if keyboard.right: myChars[0].movex = 1
+    if keyboard.up: myChars[0].movey = -1
+    if keyboard.down: myChars[0].movey = 1
+    if keyboard.a: myChars[1].movex = -1
+    if keyboard.d: myChars[1].movex = 1
+    if keyboard.w: myChars[1].movey = -1
+    if keyboard.s: myChars[1].movey = 1
+    if joyin0:
+        myChars[2].movex = round(joyin0.get_axis(0))
+        myChars[2].movey = round(joyin0.get_axis(1))
+    if joyin1:
+        myChars[3].movex = round(joyin1.get_axis(0))
+        myChars[3].movey = round(joyin1.get_axis(1))
+
+def moveChars():
+    for c in range(len(myChars)):
+        getCharDir(myChars[c])
+        if myChars[c].movex or myChars[c].movey:
+            myChars[c].frame += 1
+            if myChars[c].frame &gt;= 30: myChars[c].frame = 0
+            testmove = (int(myChars[c].x + (myChars[c].movex *20)),int(myChars[c].y + (myChars[c].movey *20)))
+            if collisionmap.get_at(testmove) == Color(&#x27;black&#x27;) and collideChars(c,testmove) == False:
+                myChars[c].x += myChars[c].movex
+                myChars[c].y += myChars[c].movey
+            myChars[c].movex = 0
+            myChars[c].movey = 0
+
+def getCharDir(ch):
+    for d in range(len(myDirs)):
+        if myDirs[d] == (ch.movex,ch.movey):
+            ch.dir = d
+
+def collideChars(c,xy):
+    for ch in range(len(myChars)):
+         if myChars[ch].collidepoint(xy) and ch != c:
+             return True
+    return False
+
+makeChar(&quot;warrior&quot;,60,60)
+makeChar(&quot;valkyrie&quot;,500,450)
+makeChar(&quot;wizard&quot;,460,180)
+makeChar(&quot;elf&quot;,100,400)
+pgzrun.go()
+</code></pre>
+</main>
+
+<script>
+// Gauntlet
+Joystick.init();
+const DIRECTIONS = [[0, 1], [-1, 1], [-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1]];
+
+var myChars, collisionmap;
+
+function reset() {
+  screen.blit('collisionmap', [0, 0]);
+  collisionmap = screen.getSurface();
+
+  myChars = [];
+  makeChar("warrior", 60, 60);
+  makeChar("valkyrie", 500, 450);
+  makeChar("wizard", 460, 180);
+  makeChar("elf", 100, 400);
+}
+
+function makeChar(name, x, y) {
+  let c = new Actor(name + "_1");
+  c.pos = [x, y];
+  c.baseName = name;
+  c.frame = 0;
+  c.movex = 0;
+  c.movey = 0;
+  c.dir = 0;
+  myChars.push(c);
+}
+
+function draw() {
+  screen.blit("colourmap", [0, 0]);
+  drawChars();
+}
+
+function drawChars() {
+  for (let c of myChars) {
+    c.name = c.baseName + "_" + (((c.dir * 3) + 1) + Math.floor(c.frame / 10));
+    c.draw();
+  }
+}
+
+function update() {
+  checkInput();
+  moveChars();
+}
+
+function checkInput() {
+  if (keyboard[keys.LEFT]) {
+    myChars[0].movex = -1;
+  }
+  if (keyboard[keys.RIGHT]) {
+    myChars[0].movex = 1;
+  }
+  if (keyboard[keys.UP]) {
+    myChars[0].movey = -1;
+  }
+  if (keyboard[keys.DOWN]) {
+    myChars[0].movey = 1;
+  }
+  if (keyboard[keys.A]) {
+    myChars[1].movex = -1;
+  }
+  if (keyboard[keys.D]) {
+    myChars[1].movex = 1;
+  }
+  if (keyboard[keys.W]) {
+    myChars[1].movey = -1;
+  }
+  if (keyboard[keys.S]) {
+    myChars[1].movey = 1;
+  }
+  if (Joystick.get_count() > 0) {
+    let joystick = new Joystick(0);
+    myChars[2].movex = Math.round(joystick.get_axis(0));
+    myChars[2].movey = Math.round(joystick.get_axis(1));
+  }
+  if (Joystick.get_count() > 1) {
+    let joystick = new Joystick(1);
+    myChars[3].movex = Math.round(joystick.get_axis(0));
+    myChars[3].movey = Math.round(joystick.get_axis(1));
+  }
+}
+
+function moveChars() {
+  for (let c of myChars) {
+    getCharDir(c);
+    if ((c.movex !== 0) || (c.movey !== 0)) {
+      c.frame += 1;
+      if (c.frame >= 30) {
+        c.frame = 0;
+      }
+      let testMoveX = Math.trunc(c.posx + (c.movex * 20)),
+          testMoveY = Math.trunc(c.posy + (c.movey * 20));
+      if (Surface.isColorEqual(collisionmap.getAt(testMoveX, testMoveY), [0, 0, 0]) && (!collideChars(c, testMoveX, testMoveY))) {
+        c.posx += c.movex;
+        c.posy += c.movey;
+      }
+      c.movex = 0;
+      c.movey = 0;
+    }
+  }
+}
+
+function getCharDir(ch) {
+  let i = 0;
+  for (let [dx, dy] of DIRECTIONS) {
+    if ((dx === ch.movex) && (dy === ch.movey)) {
+      ch.dir = i;
+    }
+    i++;
+  }
+}
+
+function collideChars(c, x, y) {
+  for (let ch of myChars) {
+    if (ch.collidepoint(x, y) && (ch !== c)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+window.addEventListener('load', (event) => {
+  images.LOAD('#imageLoader img');
+  // Non-standard order for Surface
+  screen.set_mode('#screen', '#reset', '#pause');
+  reset();
+  screen.draw.playButton();
+});
+</script>
+</body>
+
+</html>
